@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ page import="java.io.PrintWriter" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
@@ -47,7 +46,7 @@
 </head>
 <body>
 
-	<form method="post" action="CalcServlet">
+	<form method="post" action="calc">
 		<div id="container" class="container">
 			<div id="title" class="title">CALCULATOR</div>
 			<div id="row1">

@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CalcController {
 
-	@RequestMapping("CalcServlet")
+	@RequestMapping("calc")
 	public ModelAndView doCalc(HttpServletRequest req, HttpServletResponse res) {
 		ModelAndView mv = new ModelAndView();
 		CalcService service = new CalcService();
