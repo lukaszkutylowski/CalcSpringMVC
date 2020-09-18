@@ -1,4 +1,4 @@
-# **CalcServlet**
+# **CalcSpringMVC**
 
 This is a web application which is a simple version of calculator executed in web browser.
 Calculations are performed on the server side, data input and output is performed in a web browser.
