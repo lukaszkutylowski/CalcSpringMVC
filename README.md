@@ -20,6 +20,7 @@ Calculations are performed on the server side, data input and output is performe
 All configurations in this projextare implemented by annotations.
 
 *Image shows web.xml file*
+
 ![alt text](/.readmeimages/image1.jpg)
 
 *executeCalculation()* method send data to private method in order to calculate result value.
@@ -27,6 +28,7 @@ Method assumes two BigDecimal numbers and operator sign (+, -, /, *).
 After calculation this method returns BigDecimal result.
 
 *Image shows CalcService class*
+
 ![alt text](/.readmeimages/image2.jpg)
 
 *executeCalculation()* method contains four private methods:
@@ -35,6 +37,7 @@ This private methods use methods from BigDecimal class to execute operations on 
 *divide()* method additionaly contains setting according to rounding last digit and 10 significant digits after the decimal point setting.
 
 *Image shows private methods of CalcService class*
+
 ![alt text](/.readmeimages/image3.jpg)
 
 *index.jsp* it is a frontend side of this web application.
@@ -42,6 +45,7 @@ This Java Server Page contains settings according to UTF-8 charset, import Print
 In *<style>* section is declared a CSS styles configurations. It is contains some CSS classes e.g. *.container{}*.
 
 *Image shows index.jsp page*
+
 ![alt text](/.readmeimages/image4.jpg)
 
 This servlet use post HTTP method to communicate with backend side of web application.
@@ -49,6 +53,7 @@ URI of controller servlet is */calc-servlet*.
 This form contains inputs: two numbers and operator (sign) from predefined list. This set of information is sent to the CalcServlet.
 
 *Image shows <form> implementation in index.jsp file*
+
 ![alt text](/.readmeimages/image5.jpg)
 
 *CalcServlet* returns set of data: number 1, number 2, sign, result and flag.
@@ -56,6 +61,7 @@ If flag equals 0 then result is printed. This condition is implemented to printi
 Last section is footer with informations about author and date.
 
 *Image shows code with scriptlet which implements presenting of results*
+
 ![alt text](/.readmeimages/image6.jpg)
 
 *MvcConfig* class is a configuration class extends *WebMvcConfigurerAdapter* class.
@@ -64,6 +70,7 @@ This class have a *@Configuration* annotation - this class contains Bean configu
 *@EnableWebMvc* annotation enables support for *@Controller* and *@RequestMapping* annotation, which is using in web applications.
 
 *Image shows MvcConfig class*
+
 ![alt text](/.readmeimages/image7.jpg)
 
 *CalcServlet* class is a configuration class extends *AbstractAnnotationConfigDispatcherServletInitializer* class.
@@ -72,6 +79,7 @@ This class contains 3 methods. This application use 2 of them.
 *getServletMappings* method contains tab of Strings - in this case one String - information about mapping which is related to *Controller* class (fragment of the mapped url path).
 
 *Image shows MyWebInitializer class*
+
 ![alt text](/.readmeimages/image8.jpg)
 
 *CalcController* class is a controller of web application - *Controller* annotation. 
@@ -83,6 +91,7 @@ In next step *service.executeCalculation()* realized calculations on two numbers
 *mv.setViewName()* enables set a view target file.
  
 *Image shows CalcServlet controller*
+
 ![alt text](/.readmeimages/image9.jpg)
 
 *Image shows start page of CalcServlet web application.*
@@ -110,6 +119,7 @@ In next step *service.executeCalculation()* realized calculations on two numbers
 *Result of addition.*
 
 ![alt text](/.readmeimages/image15.jpg)
+
 *Result of subtraction.*
 
 ![alt text](/.readmeimages/image16.jpg)
