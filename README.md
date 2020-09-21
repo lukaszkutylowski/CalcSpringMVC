@@ -6,6 +6,7 @@ Calculations are performed on the server side, data input and output is performe
 ## Used technologies:
 * Java SE
 * Spring MVC
+* Apache Tomcat
 * OOP
 * JSP
 * JSTL
@@ -42,22 +43,25 @@ This private methods use methods from BigDecimal class to execute operations on 
 
 *index.jsp* it is a frontend side of this web application.
 This Java Server Page contains settings according to UTF-8 charset, import PrintWriter class and import Java Standard Tag Library file. 
-In *<style>* section is declared a CSS styles configurations. It is contains some CSS classes e.g. *.container{}*.
+In *<style>* section is declared a CSS styles configurations.
+It is contains some CSS classes e.g. *.container{}*.
 
 *Image shows index.jsp page*
 
 ![alt text](/.readmeimages/image4.jpg)
 
-This servlet use post HTTP method to communicate with backend side of web application.
-URI of controller servlet is */calc-servlet*.
-This form contains inputs: two numbers and operator (sign) from predefined list. This set of information is sent to the CalcServlet.
+This application use POST HTTP method to communicate with backend side of web application.
+The fragment of the mapped url path */calc*.
+This form contains inputs: two numbers and operator (sign) from predefined list.
+This set of information is sent to the CalcController.
 
 *Image shows <form> implementation in index.jsp file*
 
 ![alt text](/.readmeimages/image5.jpg)
 
-*CalcServlet* returns set of data: number 1, number 2, sign, result and flag.
-If flag equals 0 then result is printed. This condition is implemented to printing values when they are not null. Flag allows to turn off display of null values.
+*CalcController* returns set of data: number 1, number 2, sign, result and flag.
+If flag equals 0 then result is printed. This condition is implemented to printing values when they are not null.
+Flag allows to turn off display of null values.
 Last section is footer with informations about author and date.
 
 *Image shows code with scriptlet which implements presenting of results*
@@ -73,17 +77,19 @@ This class have a *@Configuration* annotation - this class contains Bean configu
 
 ![alt text](/.readmeimages/image7.jpg)
 
-*CalcServlet* class is a configuration class extends *AbstractAnnotationConfigDispatcherServletInitializer* class.
+*MyWebInitializer* class is a configuration class extends *AbstractAnnotationConfigDispatcherServletInitializer* class.
 This class contains 3 methods. This application use 2 of them.
 *getServletConfigClasses* method contains collection with information about configuration class.
-*getServletMappings* method contains tab of Strings - in this case one String - information about mapping which is related to *Controller* class (fragment of the mapped url path).
+*getServletMappings* method contains tab of Strings - in this case one String - information about mapping which is
+related to *Controller* class (fragment of the mapped url path).
 
 *Image shows MyWebInitializer class*
 
 ![alt text](/.readmeimages/image8.jpg)
 
 *CalcController* class is a controller of web application - *Controller* annotation. 
-*doCalc()* method take request and response objects. *RequestMapping("calc")* annotation is name of this controller (fragment of the mapped url path).
+*doCalc()* method take request and response objects.
+*RequestMapping("calc")* annotation is name of this controller (fragment of the mapped url path).
 *ModelAndView* is a container where we can place objects and send them to the view. 
 From request object we get parameters and save in BigDecimal variables.
 In next step *service.executeCalculation()* realized calculations on two numbers from request object.
